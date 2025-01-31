@@ -102,7 +102,7 @@ function App() {
       <header className="min-h-screen relative">
         <div className="absolute inset-0 z-0">
           <img
-            src="src\imagens\capa.png"
+            src="https://i.imgur.com/BoSP7wA.png"
             alt="Drone flying in sunset"
             className="w-full h-full object-cover opacity-50"
           />
