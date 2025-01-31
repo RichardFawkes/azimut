@@ -10,7 +10,7 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center">
             <img src={Logo}  width={90}/>
-            <span className="ml-2 text-xl font-semibold">Azimut </span>
+            <span className="ml-2 text-xl font-semibold">Azimut Vision</span>
             </div>
             <p className="text-gray-400">
               Capturando momentos únicos com tecnologia de ponta e criatividade.

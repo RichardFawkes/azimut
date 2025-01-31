@@ -13,7 +13,7 @@ export function Header() {
           {/* Logo and brand */}
           <div className="flex items-center">
            <img src={Logo}  width={90}/>
-            <span className="ml-2 text-xl font-semibold text-white">Azimut</span>
+            <span className="ml-2 text-xl font-semibold text-white">Azimut Vision</span>
           </div>
 
           {/* Desktop Navigation */}
