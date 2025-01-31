@@ -102,7 +102,7 @@ function App() {
       <header className="min-h-screen relative">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&q=80"
+            src="src\imagens\capa.png"
             alt="Drone flying in sunset"
             className="w-full h-full object-cover opacity-50"
           />
@@ -234,11 +234,13 @@ function App() {
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold mb-12 text-center">Presença Digital</h2>
           <div className="grid md:grid-cols-3 gap-8">
+            <a href='https://www.instagram.com/azimutvision'>
             <div className="text-center">
-             <Instagram className="w-12 h-12 mx-auto mb-4"  href='https://www.instagram.com/azimutvision'/>
+             <Instagram className="w-12 h-12 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Instagram</h3>
               <p className="text-gray-600">Mais de 20k seguidores</p>
             </div>
+            </a>
             <div className="text-center">
               <Search className="w-12 h-12 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">SEO</h3>
