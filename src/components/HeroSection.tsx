@@ -19,6 +19,13 @@ export function HeroSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
+  // URL do seu WhatsApp - substitua pelo seu número
+  const whatsappURL = "https://wa.me/5511975441039?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20para%20produção%20aérea%20com%20a%20Azimut%20Vision!";
+
+  const handleWhatsAppRedirect = () => {
+    window.open(whatsappURL, '_blank');
+  };
+
   useEffect(() => {
     const wordInterval = setInterval(() => {
       setCurrentWord((prev) => (prev + 1) % words.length);
@@ -109,11 +116,12 @@ export function HeroSection() {
               return (
                 <motion.div
                   key={stat.label}
-                  className="text-center p-2 md:p-3 lg:p-4 bg-black/20 backdrop-blur-sm border border-gray-600/30 rounded-lg"
+                  className="text-center p-2 md:p-3 lg:p-4 bg-black/20 backdrop-blur-sm border border-gray-600/30 rounded-lg cursor-pointer"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ delay: 0.8 + index * 0.1 }}
                   whileHover={{ scale: 1.05, y: -5 }}
+                  onClick={handleWhatsAppRedirect}
                 >
                   <Icon className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 text-blue-400 mx-auto mb-1 md:mb-2" />
                   <div className="text-sm md:text-lg lg:text-2xl font-bold text-blue-400 mb-1">
@@ -133,7 +141,8 @@ export function HeroSection() {
             transition={{ delay: 1 }}
           >
             <motion.button
-              className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg font-bold text-white text-sm md:text-base lg:text-lg"
+              onClick={handleWhatsAppRedirect}
+              className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg font-bold text-white text-sm md:text-base lg:text-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -145,6 +154,7 @@ export function HeroSection() {
             </motion.button>
 
             <motion.button
+              onClick={handleWhatsAppRedirect}
               className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 border border-blue-400/50 rounded-lg font-semibold text-blue-400 hover:text-white hover:bg-blue-400/10 transition-colors backdrop-blur-sm text-sm md:text-base lg:text-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -163,9 +173,10 @@ export function HeroSection() {
         {/* Radar discreto */}
         <div className="absolute bottom-6 right-6">
           <motion.div
-            className="w-20 h-20 xl:w-24 xl:h-24 rounded-full border border-blue-400/20 relative"
+            className="w-20 h-20 xl:w-24 xl:h-24 rounded-full border border-blue-400/20 relative cursor-pointer"
             animate={{ rotate: 360 }}
             transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+            onClick={handleWhatsAppRedirect}
           >
             <motion.div
               className="absolute top-1/2 left-1/2 w-10 xl:w-12 h-px bg-gradient-to-r from-blue-400/50 to-transparent origin-left transform -translate-y-1/2"

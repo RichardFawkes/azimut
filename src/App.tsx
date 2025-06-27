@@ -11,6 +11,7 @@ import { Portfolio3D } from './components/Portfolio3D';
 import { PartnersSection } from './components/PartnersSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { WhatsAppFAB } from './components/WhatsAppFAB';
 import 'aos/dist/aos.css';
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
         </main>
         <Footer />
       </div>
+
+      {/* WhatsApp FAB - sempre visível */}
+      <WhatsAppFAB />
 
       {/* Animação de Introdução sobreposta */}
       <AnimatePresence>
