@@ -31,7 +31,7 @@ export function HeroSection() {
 
   return (
     <section 
-      className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden flex items-center pt-16 md:pt-20"
+      className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center pt-16 md:pt-20 w-full max-w-full overflow-hidden"
       ref={ref}
     >
       {/* Background simples */}
@@ -49,17 +49,17 @@ export function HeroSection() {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 w-full max-w-full">
         <div className="max-w-6xl mx-auto text-center">
           {/* Title */}
           <motion.div
-            className="mb-8"
+            className="mb-6 md:mb-8"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
             <motion.h1 
-              className="text-4xl md:text-6xl lg:text-7xl font-bold font-tech leading-tight"
+              className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-tech leading-tight"
               whileHover={{ scale: 1.02 }}
             >
               <span className="text-white">PRODUÇÃO</span>
@@ -81,7 +81,7 @@ export function HeroSection() {
 
           {/* Subtitle */}
           <motion.p
-            className="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-sm md:text-lg lg:text-xl text-gray-300 mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed px-4"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -92,9 +92,9 @@ export function HeroSection() {
             <span className="text-blue-400 font-semibold">resultados premiados</span>
           </motion.p>
 
-          {/* Stats - Simplificado */}
+          {/* Stats - Mobile Responsive */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 max-w-2xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 lg:gap-6 mb-8 md:mb-12 max-w-2xl mx-auto px-2"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.6 }}
@@ -109,14 +109,14 @@ export function HeroSection() {
               return (
                 <motion.div
                   key={stat.label}
-                  className="text-center p-3 md:p-4 bg-black/20 backdrop-blur-sm border border-gray-600/30 rounded-lg"
+                  className="text-center p-2 md:p-3 lg:p-4 bg-black/20 backdrop-blur-sm border border-gray-600/30 rounded-lg"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ delay: 0.8 + index * 0.1 }}
                   whileHover={{ scale: 1.05, y: -5 }}
                 >
-                  <Icon className="w-6 h-6 md:w-8 md:h-8 text-blue-400 mx-auto mb-2" />
-                  <div className="text-lg md:text-2xl font-bold text-blue-400 mb-1">
+                  <Icon className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 text-blue-400 mx-auto mb-1 md:mb-2" />
+                  <div className="text-sm md:text-lg lg:text-2xl font-bold text-blue-400 mb-1">
                     {stat.value}
                   </div>
                   <div className="text-gray-400 text-xs md:text-sm">{stat.label}</div>
@@ -125,33 +125,33 @@ export function HeroSection() {
             })}
           </motion.div>
 
-          {/* CTAs - Simplificado */}
+          {/* CTAs - Mobile Responsive */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center px-4 max-w-lg mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 1 }}
           >
             <motion.button
-              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg font-bold text-white text-lg"
+              className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg font-bold text-white text-sm md:text-base lg:text-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="flex items-center justify-center gap-3">
-                <Target className="w-5 h-5" />
-                Iniciar Seu Projeto
-                <ArrowRight className="w-4 h-4" />
+              <span className="flex items-center justify-center gap-2 md:gap-3">
+                <Target className="w-4 h-4 md:w-5 md:h-5" />
+                <span className="truncate">Iniciar Seu Projeto</span>
+                <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
               </span>
             </motion.button>
 
             <motion.button
-              className="w-full sm:w-auto px-8 py-4 border border-blue-400/50 rounded-lg font-semibold text-blue-400 hover:text-white hover:bg-blue-400/10 transition-colors backdrop-blur-sm"
+              className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 border border-blue-400/50 rounded-lg font-semibold text-blue-400 hover:text-white hover:bg-blue-400/10 transition-colors backdrop-blur-sm text-sm md:text-base lg:text-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="flex items-center justify-center gap-3">
-                <Play className="w-5 h-5" />
-                Assistir Demo Reel
+              <span className="flex items-center justify-center gap-2 md:gap-3">
+                <Play className="w-4 h-4 md:w-5 md:h-5" />
+                <span className="truncate">Assistir Demo Reel</span>
               </span>
             </motion.button>
           </motion.div>
@@ -163,12 +163,12 @@ export function HeroSection() {
         {/* Radar discreto */}
         <div className="absolute bottom-6 right-6">
           <motion.div
-            className="w-24 h-24 rounded-full border border-blue-400/20 relative"
+            className="w-20 h-20 xl:w-24 xl:h-24 rounded-full border border-blue-400/20 relative"
             animate={{ rotate: 360 }}
             transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
           >
             <motion.div
-              className="absolute top-1/2 left-1/2 w-12 h-px bg-gradient-to-r from-blue-400/50 to-transparent origin-left transform -translate-y-1/2"
+              className="absolute top-1/2 left-1/2 w-10 xl:w-12 h-px bg-gradient-to-r from-blue-400/50 to-transparent origin-left transform -translate-y-1/2"
               animate={{ rotate: 360 }}
               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
             />

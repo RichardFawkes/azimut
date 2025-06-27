@@ -11,15 +11,15 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background: #000000;
   color: #ffffff;
-  overflow-x: hidden;
   line-height: 1.6;
 }
 
@@ -51,7 +51,7 @@ body {
 .font-tech {
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.1em;
 }
 
 .font-mono {
@@ -73,14 +73,30 @@ body {
 
 /* Cards com efeito holográfico */
 .card-glass {
-  @apply bg-black/40 backdrop-blur-xl border border-gray-700/50;
-  @apply hover:border-blue-400/50 transition-all duration-300;
-  @apply shadow-2xl hover:shadow-blue-500/10;
+  background: rgba(15, 23, 42, 0.3);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card-glass:hover {
+  background: rgba(15, 23, 42, 0.5);
+  border-color: rgba(59, 130, 246, 0.3);
 }
 
 /* Efeitos de texto */
 .text-gradient {
-  @apply bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .text-glow {
@@ -162,6 +178,34 @@ body {
 
 /* Utilitários responsivos */
 @media (max-width: 768px) {
+  * {
+    max-width: 100vw;
+  }
+  
+  /* Previne overflow em containers */
+  .container {
+    max-width: 100vw !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Ajusta margens e padding */
+  section {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  
+  /* Corrige grid layouts */
+  .grid {
+    max-width: 100%;
+  }
+  
+  /* Previne que elementos saiam da tela */
+  img, video, iframe {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
   .text-responsive {
     font-size: clamp(1.5rem, 5vw, 3rem);
   }
@@ -191,4 +235,74 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Correções específicas para mobile */
+@media (max-width: 640px) {
+  .text-responsive {
+    font-size: 0.875rem !important;
+    line-height: 1.25rem !important;
+  }
+  
+  .padding-responsive {
+    padding: 0.75rem !important;
+  }
+  
+  .margin-responsive {
+    margin: 0.5rem !important;
+  }
+}
+
+/* Correção para elementos fixed */
+.fixed {
+  max-width: 100vw;
+}
+
+/* Prevenção de zoom em inputs no iOS */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"] {
+    font-size: 16px;
+  }
+}
+
+/* Animações suaves */
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 3s ease infinite;
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Utility classes adicionais */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
 }

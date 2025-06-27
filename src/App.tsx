@@ -21,11 +21,11 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* Site Principal - sempre carregado */}
-      <div className="relative">
+      <div className="relative w-full max-w-full">
         <Header />
-        <main>
+        <main className="w-full max-w-full">
           <HeroSection />
           <ServicesSection />
           <TechSection />
